@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.19)
 
-add_library(ipm)
+list(APPEND ipm_files
+        ipeCap.F90
+        ipeMethods.F90
+        IPE_Wrapper.F90
+)
+
+add_library(ipm ${ipm_files})
 
 add_subdirectory(ipelib)
 
@@ -9,7 +15,6 @@ set_target_properties(ipm PROPERTIES Fortran_MODULE_DIRECTORY
 target_include_directories(ipm INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                          $<INSTALL_INTERFACE:mod>)
 
-list(APPEND ipm_files ipeCap.F90 ipeMethods.F90 IPE_Wrapper.F90)
 
 ###############################################################################
 ### Install

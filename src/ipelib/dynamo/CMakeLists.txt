@@ -1,12 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
 
-add_library(dynamo)
-
-set_target_properties(dynamo PROPERTIES Fortran_MODULE_DIRECTORY
-                                     ${CMAKE_CURRENT_BINARY_DIR}/mod)
-target_include_directories(dynamo INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
-                                         $<INSTALL_INTERFACE:mod>)
-
 list(APPEND dynamo_files
         cons_module.f
         dynamo_module.f
@@ -42,6 +35,14 @@ list(APPEND dynamo_files
         params.f
         util.f
 )
+
+add_library(dynamo ${dynamo_files})
+
+set_target_properties(dynamo PROPERTIES Fortran_MODULE_DIRECTORY
+                                     ${CMAKE_CURRENT_BINARY_DIR}/mod)
+target_include_directories(dynamo INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
+                                         $<INSTALL_INTERFACE:mod>)
+
 
 ###############################################################################
 ### Install

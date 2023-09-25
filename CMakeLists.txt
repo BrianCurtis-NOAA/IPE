@@ -7,14 +7,17 @@ project(ipemain
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMakeModules/Modules)
 
-find_package(hdf5 1.10.6 REQUIRED)
-find_package(netcdf 4.7.4 REQUIRED)
+set(DEBUG OFF CACHE BOOL "Enable DEBUG mode")
+
 find_package(ESMF 8.4.0 MODULE REQUIRED)
-find_package(bacio 2.4.10 REQUIRED)
-find_package(sp 2.3.3 REQUIRED)
-find_package(w3nco 2.4.1 REQUIRED)
-find_package(pnetcdf 1.11.2 REQUIRED)
-find_package(comio 0.0.8 REQUIRED)
+find_package(COMIO 0.0.8 REQUIRED)
+
+if(DEBUG)
+  set(CMAKE_BUILD_TYPE "Debug" CACHE STRING "Set type of build to Debug." FORCE)
+else()
+  set(CMAKE_BUILD_TYPE "Release" CACHE STRING "Set type of build to Release." FORCE)
+endif()
+
 
 add_library(ipemain src/IPE_Driver.F90)
 

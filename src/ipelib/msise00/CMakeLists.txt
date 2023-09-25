@@ -1,12 +1,5 @@
 cmake_minimum_required(VERSION 3.19)
 
-add_library(msise src/IPE_Driver.F90)
-
-set_target_properties(msise PROPERTIES Fortran_MODULE_DIRECTORY
-                                     ${CMAKE_CURRENT_BINARY_DIR}/mod)
-target_include_directories(msise INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
-                                         $<INSTALL_INTERFACE:mod>)
-
 list(APPEND msise_files
         hwm14.f90
         physics_constants.f90
@@ -14,6 +7,13 @@ list(APPEND msise_files
         utils_constants.f90
         utils_spline.f90
 )
+
+add_library(msise ${msise_files})
+
+set_target_properties(msise PROPERTIES Fortran_MODULE_DIRECTORY
+                                     ${CMAKE_CURRENT_BINARY_DIR}/mod)
+target_include_directories(msise INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
+                                         $<INSTALL_INTERFACE:mod>)
 
 ###############################################################################
 ### Install

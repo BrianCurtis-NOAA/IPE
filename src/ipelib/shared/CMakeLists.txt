@@ -1,15 +1,15 @@
 cmake_minimum_required(VERSION 3.19)
 
-add_library(ipeshared)
+list(APPEND ipeshared_files
+        ipe_error_module.F90
+)
+
+add_library(ipeshared ${ipeshared_files})
 
 set_target_properties(ipeshared PROPERTIES Fortran_MODULE_DIRECTORY
                                      ${CMAKE_CURRENT_BINARY_DIR}/mod)
 target_include_directories(ipeshared INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                          $<INSTALL_INTERFACE:mod>)
-
-list(APPEND ipeshared_files
-        ipe_error_module.F90
-)
 
 ###############################################################################
 ### Install
