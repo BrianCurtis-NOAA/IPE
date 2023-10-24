@@ -15,6 +15,8 @@ set_target_properties(msise PROPERTIES Fortran_MODULE_DIRECTORY
 target_include_directories(msise INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                          $<INSTALL_INTERFACE:mod>)
 
+target_link_libraries(msise shared)
+
 ###############################################################################
 ### Install
 ###############################################################################

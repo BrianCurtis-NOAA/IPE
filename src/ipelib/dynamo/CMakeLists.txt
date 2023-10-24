@@ -42,7 +42,7 @@ set_target_properties(dynamo PROPERTIES Fortran_MODULE_DIRECTORY
                                      ${CMAKE_CURRENT_BINARY_DIR}/mod)
 target_include_directories(dynamo INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                          $<INSTALL_INTERFACE:mod>)
-
+target_link_libraries(dynamo shared)
 
 ###############################################################################
 ### Install

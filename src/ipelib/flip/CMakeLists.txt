@@ -27,7 +27,6 @@ set_target_properties(flip PROPERTIES Fortran_MODULE_DIRECTORY
 target_include_directories(flip INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                          $<INSTALL_INTERFACE:mod>)
 
-
 ###############################################################################
 ### Install
 ###############################################################################

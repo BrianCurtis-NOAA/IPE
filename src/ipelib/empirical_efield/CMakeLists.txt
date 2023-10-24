@@ -13,6 +13,8 @@ set_target_properties(efield PROPERTIES Fortran_MODULE_DIRECTORY
 target_include_directories(efield INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                          $<INSTALL_INTERFACE:mod>)
 
+target_link_libraries(efield shared)
+
 ###############################################################################
 ### Install
 ###############################################################################
