@@ -10,6 +10,8 @@ list(APPEND msise_files
 
 add_library(msise ${msise_files})
 
+add_dependencies(msise shared)
+
 set_target_properties(msise PROPERTIES Fortran_MODULE_DIRECTORY
                                      ${CMAKE_CURRENT_BINARY_DIR}/mod)
 target_include_directories(msise INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>

@@ -8,6 +8,8 @@ list(APPEND efield_files
 
 add_library(efield ${efield_files})
 
+add_dependencies(efield shared)
+
 set_target_properties(efield PROPERTIES Fortran_MODULE_DIRECTORY
                                      ${CMAKE_CURRENT_BINARY_DIR}/mod)
 target_include_directories(efield INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
