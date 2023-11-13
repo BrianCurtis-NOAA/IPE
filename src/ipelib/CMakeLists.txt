@@ -36,7 +36,7 @@ target_include_directories(ipe INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINAR
                                          $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/msise00>
                                          $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/shared>
                                          )
-                                 target_link_libraries(ipe PUBLIC COMIO)
+target_link_libraries(ipe PUBLIC COMIO)
 target_link_libraries(ipe PUBLIC dynamo efield flip msise shared)
 
 

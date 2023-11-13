@@ -20,6 +20,9 @@ load(pathJoin("ncarcompilers", ncarcompilers_ver))
 mpt_ver=os.getenv("mpt_ver") or "2.22"
 load(pathJoin("mpt", mpt_ver))
 
+cmake_ver=os.getenv("cmake_ver") or "3.22.0"
+load(pathJoin("cmake", cmake_ver))
+
 prepend_path("MODULEPATH", "/glade/work/akubaryk/modulefiles")
 
 esmf_ver=os.getenv("esmf_ver") or "8.4.2"

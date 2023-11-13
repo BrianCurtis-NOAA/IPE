@@ -22,6 +22,9 @@ load(pathJoin("hpc-intel", hpc_intel_ver))
 hpc_impi_ver=os.getenv("hpc_impi_ver") or "2018.0.4"
 load(pathJoin("hpc-impi", hpc_impi_ver))
 
+cmake_ver=os.getenv("cmake_ver") or "3.26.4"
+load(pathJoin("cmake", cmake_ver))
+
 hdf5_ver=os.getenv("hdf5_ver") or "1.10.6"
 load(pathJoin("hdf5", hdf5parallel_ver))
 

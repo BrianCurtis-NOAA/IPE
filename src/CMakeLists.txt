@@ -40,16 +40,16 @@ if(COUPLED)
 
 else()
         add_executable(ipe_model IPE_Driver.F90)
-        target_compile_definitions(ipe_model PUBLIC -DHAVE_MPI=1 -DHAVE_COMIO=1 -DHAVE_ESMF=1 -lcomio)
+        target_compile_definitions(ipe_model PUBLIC -DHAVE_MPI=1 -DHAVE_COMIO=1 -DHAVE_ESMF=1)
         set_target_properties(ipe_model PROPERTIES Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/mod)
         target_include_directories(ipe_model INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
                                                        $<INSTALL_INTERFACE:mod>
-                                                 $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib>
-                                                 $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/dynamo>
-                                                 $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/empirical_efield>
-                                                 $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/flip>
-                                                 $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/msise00>
-                                                 $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/shared>
+                                                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib>
+                                                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/dynamo>
+                                                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/empirical_efield>
+                                                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/flip>
+                                                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/msise00>
+                                                       $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/shared>
                                                        )
                                                target_link_libraries(ipe_model PRIVATE ipe COMIO hdf5 z pnetcdf esmf NetCDF::NetCDF_Fortran)
 endif()

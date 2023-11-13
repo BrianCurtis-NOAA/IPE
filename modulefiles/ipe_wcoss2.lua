@@ -20,6 +20,9 @@ load(pathJoin("cray-libsci", cray_libsci_ver))
 cray_pals_ver=os.getenv("cray_pals_ver") or "1.0.12"
 load(pathJoin("cray-pals", cray_pals_ver))
 
+cmake_ver=os.getenv("cmake_ver") or "3.20.2"
+load(pathJoin("cmake", cmake_ver))
+
 netcdf_ver=os.getenv("netcdf_ver") or "4.7.4"
 load(pathJoin("netcdf", netcdf_ver))
 
