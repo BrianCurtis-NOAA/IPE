@@ -51,7 +51,7 @@ else()
                                                        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/msise00>
                                                        $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/ipelib/shared>
                                                        )
-                                               target_link_libraries(ipe_model PRIVATE ipe COMIO hdf5 z pnetcdf esmf NetCDF::NetCDF_Fortran)
+        target_link_libraries(ipe_model PRIVATE ipe COMIO pnetcdf esmf NetCDF::NetCDF_Fortran)
 endif()
 
 ###############################################################################

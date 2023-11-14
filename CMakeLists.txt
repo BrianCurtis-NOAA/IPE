@@ -12,8 +12,6 @@ set(COUPLED OFF CACHE BOOL "Build IPE as coupled component")
 set(OPENMP ON CACHE BOOL "Enable OpenMP threading")
 
 find_package(COMIO 0.0.10 REQUIRED)
-find_package(HDF5 REQUIRED COMPONENTS Fortran)
-find_package(ZLIB REQUIRED)
 find_package(PnetCDF REQUIRED COMPONENTS Fortran)
 find_package(ESMF 8.4.0 MODULE REQUIRED)
 find_package(NetCDF REQUIRED COMPONENTS Fortran)
